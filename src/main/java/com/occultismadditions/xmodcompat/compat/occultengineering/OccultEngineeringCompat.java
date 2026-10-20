@@ -34,10 +34,13 @@ public class OccultEngineeringCompat implements ICompatModule {
 
         // 变灵 / Puca as the 6th independent track — only when Occult AE is present,
         // because TrackRegistry references Occult AE types.
+        // Name and per-level name are left blank on purpose: the track then resolves
+        // track.occultae.puca / track_level.occultae.craft_puca from the lang files,
+        // so each language gets its own text.
         if (CompatManager.isLoaded(ModIds.OCCULT_AE)) {
-            TrackRegistry.registerTrack("puca", "变灵",
-                    java.util.List.of(java.util.List.of("occultengineering:craft_puca@foliot", "变灵法阵")));
-            LOGGER.info("[OccultEngineering] registered Puca (变灵) as a new chamber track");
+            TrackRegistry.registerTrack("puca", "",
+                    java.util.List.of(java.util.List.of("occultengineering:craft_puca@foliot", "")));
+            LOGGER.info("[OccultEngineering] registered Puca as a new chamber track");
         } else {
             LOGGER.info("[OccultEngineering] Occult AE absent; Puca track registration skipped");
         }

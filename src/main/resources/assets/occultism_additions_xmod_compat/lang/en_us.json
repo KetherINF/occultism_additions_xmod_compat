@@ -2,5 +2,7 @@
   "occultism_additions_xmod_compat.configuration.title": "Occultism Additions XMod Compat Configs",
   "occultism_additions_xmod_compat.configuration.section.occultism_additions_xmod_compat.common.toml": "Occultism Additions XMod Compat Configs",
   "occultism_additions_xmod_compat.configuration.section.occultism_additions_xmod_compat.common.toml.title": "Occultism Additions XMod Compat Configs",
-  "occultism_additions_xmod_compat.configuration.logCompatState": "Log Compat State"
+  "occultism_additions_xmod_compat.configuration.logCompatState": "Log Compat State",
+  "track.occultae.puca": "Puca",
+  "track_level.occultae.craft_puca": "Puca Circle"
 }

@@ -2,5 +2,7 @@
   "occultism_additions_xmod_compat.configuration.title": "Occultism Additions XMod Compat 配置",
   "occultism_additions_xmod_compat.configuration.section.occultism_additions_xmod_compat.common.toml": "Occultism Additions XMod Compat 配置",
   "occultism_additions_xmod_compat.configuration.section.occultism_additions_xmod_compat.common.toml.title": "Occultism Additions XMod Compat 配置",
-  "occultism_additions_xmod_compat.configuration.logCompatState": "记录兼容状态"
+  "occultism_additions_xmod_compat.configuration.logCompatState": "记录兼容状态",
+  "track.occultae.puca": "变灵",
+  "track_level.occultae.craft_puca": "变灵法阵"
 }
