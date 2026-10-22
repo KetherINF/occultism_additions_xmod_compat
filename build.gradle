@@ -208,3 +208,23 @@ idea {
         downloadJavadoc = true
     }
 }
+
+// Test build: strip the Mekanism Magic mixins so upstream chalk support can be verified
+// on its own. Usage:
+//   ./gradlew build -PdisableMekMagic=true -Pmod_version=0.3.5fix1-test
+if (findProperty('disableMekMagic') == 'true') {
+    def resourcesDir = layout.buildDirectory.dir('resources/main')
+    tasks.named('processResources', ProcessResources).configure {
+        doLast {
+            def target = new File(resourcesDir.get().asFile, 'occultism_additions_xmod_compat.mixins.json')
+            if (!target.exists()) {
+                return
+            }
+            def json = new groovy.json.JsonSlurper().parseText(target.text)
+            def kept = json.mixins.findAll { !it.contains('MekanismMagic') }
+            json.mixins = kept
+            target.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(json))
+            logger.lifecycle("[xmodcompat] disableMekMagic: kept mixins ${kept}")
+        }
+    }
+}

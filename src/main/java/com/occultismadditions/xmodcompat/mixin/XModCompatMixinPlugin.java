@@ -21,6 +21,7 @@ public class XModCompatMixinPlugin implements IMixinConfigPlugin {
 
     private boolean occultaePresent;
     private boolean mekanismMagicPresent;
+    private boolean pentacleMaterialsPresent;
 
     @Override
     public void onLoad(String mixinPackage) {
@@ -28,12 +29,18 @@ public class XModCompatMixinPlugin implements IMixinConfigPlugin {
                 "com/dyvehn/occultae/pattern/RitualPatternDetails.class");
         mekanismMagicPresent = detect("mekanism_magic",
                 "com/example/mekanismmagic/integration/occultism/OccultismRecipeBridge.class");
-        LOG.info("[XModCompat] mixin plugin onLoad: occultae={} mekanism_magic={}",
-                occultaePresent, mekanismMagicPresent);
+        // Mekanism Magic 1.0.7 moved the pentacle scan into PentacleMaterials.
+        pentacleMaterialsPresent = detect("mekanism_magic",
+                "com/example/mekanismmagic/integration/occultism/PentacleMaterials.class");
+        LOG.info("[XModCompat] mixin plugin onLoad: occultae={} mekanism_magic={} pentacle_materials={}",
+                occultaePresent, mekanismMagicPresent, pentacleMaterialsPresent);
     }
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.contains("MekanismMagicPentacleMaterials")) {
+            return pentacleMaterialsPresent;
+        }
         if (mixinClassName.contains("MekanismMagic")) {
             return mekanismMagicPresent;
         }
