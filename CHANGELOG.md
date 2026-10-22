@@ -6,6 +6,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Versions use `x.y.z` for feature releases and a `fixN` suffix for
 upstream-adaptation / compatibility fixes.
 
+English | [简体中文](CHANGELOG.zh_cn.md)
+
 ## [Unreleased]
 
 ## [0.3.5fix3] - 2026-10-22
