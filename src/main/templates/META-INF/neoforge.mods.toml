@@ -94,6 +94,46 @@ config="occultism_additions_xmod_compat.mixins.json"
     ordering="AFTER"
     side="BOTH"
 
+# Optional integrations. These ranges document what the mixins were compiled against;
+# a version mismatch only produces a warning, the mod still loads and the bridge
+# degrades to whatever the upstream version supports.
+[[dependencies.${mod_id}]]
+    modId="occultae"
+    type="optional"
+    versionRange="[0.3.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="occultengineering"
+    type="optional"
+    versionRange="[0.13.1,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="occultism_kubejs"
+    type="optional"
+    versionRange="[1.11.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="kubejs"
+    type="optional"
+    versionRange="[2101.7.2,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# Mekanism Magic 1.0.6+ is supported: the chalk item widening works on both versions,
+# while the pentacle scan widening needs the PentacleMaterials class added in 1.0.7.
+[[dependencies.${mod_id}]]
+    modId="mekanism_magic"
+    type="optional"
+    versionRange="[1.0.6,)"
+    ordering="AFTER"
+    side="BOTH"
+
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.

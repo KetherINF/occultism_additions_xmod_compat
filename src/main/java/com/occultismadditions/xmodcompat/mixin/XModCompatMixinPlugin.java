@@ -38,6 +38,10 @@ public class XModCompatMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.contains("MekanismMagicLegacyScan")) {
+            // 1.0.6fix and older keep the scan inline; 1.0.7 replaced it with PentacleMaterials.
+            return mekanismMagicPresent && !pentacleMaterialsPresent;
+        }
         if (mixinClassName.contains("MekanismMagicPentacleMaterials")) {
             return pentacleMaterialsPresent;
         }

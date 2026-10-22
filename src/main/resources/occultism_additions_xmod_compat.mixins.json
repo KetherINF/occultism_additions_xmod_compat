@@ -10,7 +10,8 @@
     "ChamberTrackLevelMixin",
     "MekanismMagicChalkMixin",
     "MekanismMagicJeiChalkMixin",
-    "MekanismMagicPentacleMaterialsMixin"
+    "MekanismMagicPentacleMaterialsMixin",
+    "MekanismMagicLegacyScanMixin"
   ],
   "injectors": {
     "defaultRequire": 1
